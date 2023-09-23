@@ -1,0 +1,45 @@
+
+.headerdiv{
+     height: 6rem;
+     width: 100%;
+     background-color: rgb(138, 134, 134);
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     /* position: fixed;
+     z-index: 100; */
+}
+
+.searchdiv > img{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.homebutton{
+    margin-left: 5rem;
+    border: none;
+    margin-top: 3rem;
+    height: 3rem;
+    width: 5rem;
+    font-weight: 600;
+    font-size: larger;
+}
+
+.searchdiv{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    width: 11rem;
+    background-color: white;
+    border-radius: 15px;
+    margin-right: 4rem;
+}
+
+.searchdiv >input{
+    border: none;
+   border-radius: 15px;
+}
+
+input{
+    outline: none;
+}
