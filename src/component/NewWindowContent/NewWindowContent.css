@@ -1,0 +1,36 @@
+.headdiv{
+    height: 55rem;
+    width: 80rem;
+    border: 1px solid rgb(79, 78, 78);
+    margin-top: 5rem;
+    margin-left: 20rem;
+}
+
+#headerdiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.horizontal{
+    border: 1px solid rgb(79, 78, 78);
+}
+
+
+#cancelimg{
+    margin-right: 1rem;
+}
+
+h2{
+    margin-left: 2rem;
+}
+
+#bio{
+    height: 10rem;
+    border: 1px solid rgb(79, 78, 78);
+}
+
+table>:last-child{
+    border-bottom: none;
+}

@@ -3,6 +3,8 @@ import Add from '../../assets/add.png'
 import axios from 'axios'
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router'
+import StarRating from '../StarRating/StarRating';
+
 
 
 
@@ -62,7 +64,9 @@ function convertToBase64(binaryData) {
                         <th>{Data.name}</th>
                         <th>{Data.releaseDate}</th>
                         <th>{Data.artistIds}</th>
-                        <th>{Data.rating}</th>
+                        <th>
+                            {<StarRating rating={Data.rating}/>}
+                        </th>
                     </tr>)
                    
                 })}

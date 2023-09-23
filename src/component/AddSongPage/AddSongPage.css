@@ -9,12 +9,40 @@ tr{
 
 
 table{
-    margin-left: 5rem;
+    margin-left: 0rem;
     width: 40rem;
+    height: 50rem;
+}
+
+th{
+    border: none;
+   min-height: 10rem;
+    min-width: 20rem;
 }
 
 .buttondiv{
     display: flex;
     flex-direction: row;
     gap: 2rem;
+}
+
+th>input{
+    width: 20rem;
+    height: 3rem;
+}
+
+#artwork{
+    width: 20rem;
+    height: 3rem;
+}
+
+#artists{
+    width: 20rem;
+    height: 3rem;
+}
+
+label{
+    font-size: larger;
+    font-weight: 600;
+    text-align: left;
 }
