@@ -2,6 +2,7 @@ import './SongTable.css'
 import Add from '../../assets/add.png'
 import axios from 'axios'
 import {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router'
 
 
 
@@ -10,6 +11,7 @@ import {useEffect, useState} from 'react'
 function SongTable(){
 
     const [SongData,setSongData]=useState([]);
+    const navigate=useNavigate();
 
     useEffect(()=>{
         axios.get(`http://localhost:5000/song`).then((response)=>{
@@ -22,13 +24,23 @@ function SongTable(){
 },[])
 
 
+function NaviPage(){
+    navigate('/addsong')
+}
+
+function convertToBase64(binaryData) {
+    const binaryArray = new Uint8Array(binaryData);
+    const base64Image = btoa(String.fromCharCode.apply(null, binaryArray));
+    return `data:image/jpeg;base64,${base64Image}`;
+}
+
     return <>
         <div className='songtablediv'>
             <div id="headdiv">
                 <h1>Top 10 Songs</h1>
                 <div id="add-div">
                     <img src={Add} alt="add"/>
-                    <button>Add Song</button>
+                    <button onClick={NaviPage}>Add Song</button>
                 </div>
             </div>
             <table>
@@ -43,13 +55,10 @@ function SongTable(){
                 </thead>
                 <tbody>
                 {SongData.map((Data,index)=>{
+                    console.log(Data.name)
+                    const base64Image = convertToBase64(Data.coverImage.data);
                    return (<tr key={index}>
-                        <th>
-                        <img        
-                    src={`data:image/jpeg;base64,${Data.coverImage}`} 
-                    alt={`${Data.name} Cover`}
-                  />
-                        </th>
+                        <th><img src={base64Image} alt={`${Data.name} Cover`}/></th>
                         <th>{Data.name}</th>
                         <th>{Data.releaseDate}</th>
                         <th>{Data.artistIds}</th>

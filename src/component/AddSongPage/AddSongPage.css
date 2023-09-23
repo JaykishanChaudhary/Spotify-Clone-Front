@@ -1,0 +1,20 @@
+h1{
+    margin-left: 5rem;
+}
+
+tr{
+    width: 5rem;
+    height: 2rem;
+}
+
+
+table{
+    margin-left: 5rem;
+    width: 40rem;
+}
+
+.buttondiv{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}

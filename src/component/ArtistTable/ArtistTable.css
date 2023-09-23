@@ -1,4 +1,4 @@
-.songtablediv{
+.artisttablediv{
     min-height: 40rem;
     width: 95%;
     /* border: 1px solid black; */
@@ -51,8 +51,8 @@ td{
 th{
     border: 1px solid rgb(151, 148, 148);
     padding: 8px;
-    min-width: 5rem;
-    min-height: 5rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 th>img{
