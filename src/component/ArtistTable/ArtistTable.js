@@ -10,16 +10,27 @@ import {useEffect, useState} from 'react'
 function ArtistTable(){
 
     const [ArtistData,setArtistData]=useState([]);
+    console.log(ArtistData);
+        useEffect(()=>{
+            const token=localStorage.getItem('jwt');
+            console.log(token);
+            if(token){
+            axios.get(`http://localhost:5000/artist`,{
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            }).then((response)=>{
+                setArtistData(response.data.result)
+                console.log("ArtistData",ArtistData);
+            }).catch((err)=>{
+                console.error(err)})
+        }else{
+             console.error('No token available: Redirect to login or show error message');
+        }
+    },[])
 
-    useEffect(()=>{
-        axios.get(`http://localhost:5000/artist`).then((response)=>{
-            setArtistData(response.data.result)
-            // console.log(SongData)
-        }).catch((err)=>{
-            console.error(err)
-        })
+    
   
-},[])
 
 
     return <>
@@ -44,8 +55,8 @@ function ArtistTable(){
                     console.log(Data.name)
                    return (<tr key={index}>
                         <th>{Data.name}</th>
-                        <th>{Data.DOB}</th>
-                        <th>{Data.Songs}</th>
+                        <th>{Data.dob}</th>
+                        <th>{Data.songs}</th>
                         {/* <th>{Data.rating}</th> */}
                     </tr>)
                    

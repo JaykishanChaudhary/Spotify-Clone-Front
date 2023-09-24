@@ -30,10 +30,15 @@ const AddSongPage = () => {
     const HandleSelectedArtists = (selectedOptions) => {
         setSelectedArtists(selectedOptions);
         const artistNames = selectedOptions.map((option) => option.value);
-    
+        const artistIds = artistNames.map((name) => {
+            const artist = Artists.find((artist) => artist.name === name);
+            return artist ? artist._id : null;
+        });
+        console.log(artistIds)
         setformData({
             ...formData,
             artistNames: artistNames,
+            artistIds:artistIds
         });
     }
     const artistOptions = Artists.map((data, key) => ({

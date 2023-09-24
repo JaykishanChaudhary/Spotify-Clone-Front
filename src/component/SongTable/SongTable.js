@@ -15,7 +15,7 @@ function SongTable(){
     const [SongData,setSongData]=useState([]);
     const navigate=useNavigate();
 
-      
+    console.log(SongData)
     useEffect(()=>{
         const token=localStorage.getItem('jwt');
         console.log("token",token)
@@ -26,7 +26,7 @@ function SongTable(){
                 }
             }).then((response)=>{
                 setSongData(response.data.result)
-                console.log(SongData)
+                console.log("SongData",SongData);
             }).catch((err)=>{
                 if(err.response && err.response.status === 401){
                     console.error('Unauthorized: Redirect to login or show error message');
@@ -79,9 +79,9 @@ function convertToBase64(binaryData) {
                         <th><img src={base64Image} alt={`${Data.name} Cover`}/></th>
                         <th>{Data.name}</th>
                         <th>{Data.releaseDate}</th>
-                        <th>{Data.artistIds}</th>
+                        <th>{Data.artists.join(" , ")}</th>
                         <th>
-                            {<StarRating rating={Data.rating}/>}
+                            {<StarRating initialRating={Data.rating}  />}
                         </th>
                     </tr>)
                    
