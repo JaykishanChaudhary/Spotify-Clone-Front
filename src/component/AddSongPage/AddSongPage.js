@@ -54,22 +54,47 @@ const AddSongPage = () => {
       };
 
       function CreateSong(){
-        axios.post('http://localhost:5000/song',formData ,{headers: {
-            'Content-Type': 'multipart/form-data',
-          }}).then((response)=>{
-            console.log(response);
-        }).catch((err)=>{
-           console.error(err)
-        })
-        navigate('/')
+        const token=localStorage.getItem('jwt');
+        if(token){
+            axios.post('http://localhost:5000/song',formData ,{headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: `Bearer ${token}`
+              }
+            
+              }).then((response)=>{
+                console.log(response);
+                navigate('/home')
+
+            }).catch((err)=>{
+               console.error(err)
+            })
+        }   else {
+            console.error('No token available: Redirect to login or show error message');
+          }
+      
       }
       useEffect(()=>{
-        axios.get('http://localhost:5000/artist').then((response)=>{
-            setArtists(response.data.result);
-            console.log('Artists',Artists);
-        }).catch((err)=>{
-           console.error(err)
-        })
+        const token=localStorage.getItem('jwt');
+        console.log("token",token)
+        if(token){
+            axios.get('http://localhost:5000/artist',{
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            }).then((response)=>{
+                setArtists(response.data.result);
+                console.log('Artists',Artists);
+            }).catch((err)=>{
+                if(err.response && err.response.status === 401){
+                    console.error('Unauthorized: Redirect to login or show error message');
+                }else{
+                    console.error(err)
+                }
+            })
+        }else{
+            console.error('No token available: Redirect to login or show error message');
+        }
+       
       },[])
 
 

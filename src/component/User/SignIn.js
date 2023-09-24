@@ -33,7 +33,7 @@ const SignIn = () => {
                 M.toast({html: data.error})
             }else{
                 swal({
-                    title: 'Welcome to Real-Estate-Catalog',
+                    title: 'Welcome to Spotify',
                     icon: "success"
                 })
                 localStorage.setItem('jwt', data.token)
@@ -46,7 +46,7 @@ const SignIn = () => {
 
     return <div className="form-container-main">
     <div className="form">
-        <div className='font-s-l font-c-l logo-m-b'>Logo</div>
+        <div className='font-s-l font-c-l logo-m-b'>Spotify</div>
         <p className='font-s-sm b-m-signin para-m-b-sign font-opct'>Enter your credentials to access your account</p>
         {/* <div className="showMessage">{!flag ? "" : error}</div> */}
         <div className="input-filed">

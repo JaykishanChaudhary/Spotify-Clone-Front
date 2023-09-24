@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 function Header(){
     const navigate=useNavigate()
     function NaviPage(){
-        navigate('/')
+        navigate('/home')
     }
     return <>
         <div className='headerdiv'>

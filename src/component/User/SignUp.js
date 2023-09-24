@@ -41,7 +41,7 @@ const SignUp = () => {
                     title: data.message,
                     icon: "success"
                 })
-                history('/')
+                history('/signin')
             }
         })
         .catch(err => {
@@ -51,7 +51,7 @@ const SignUp = () => {
 
     return <div className="form-container-main">
         <div className="form">
-            <div className='font-s-l font-c-l logo-m-b'>Logo</div>
+            <div className='font-s-l font-c-l logo-m-b'>Spotify</div>
             <p className='font-s-sm  font-opct'>Create New Account</p>
             {/* <div id='showMessage'>All fields are mandatory</div> */}
             {/* <div className='showMessage'>{!flag ? '' : error}</div> */}

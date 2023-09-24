@@ -15,13 +15,29 @@ function SongTable(){
     const [SongData,setSongData]=useState([]);
     const navigate=useNavigate();
 
+      
     useEffect(()=>{
-        axios.get(`http://localhost:5000/song`).then((response)=>{
-            setSongData(response.data.result)
-            console.log(SongData)
-        }).catch((err)=>{
-            console.error(err)
-        })
+        const token=localStorage.getItem('jwt');
+        console.log("token",token)
+        if(token){
+            axios.get(`http://localhost:5000/song`,{
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            }).then((response)=>{
+                setSongData(response.data.result)
+                console.log(SongData)
+            }).catch((err)=>{
+                if(err.response && err.response.status === 401){
+                    console.error('Unauthorized: Redirect to login or show error message');
+                }else{
+                    console.error(err)
+                }
+            })
+        }else{
+            console.error('No token available: Redirect to login or show error message');
+        }
+       
   
 },[])
 
