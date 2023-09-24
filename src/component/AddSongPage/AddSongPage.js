@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './AddSongPage.css'
-import { ReactDOM } from 'react';
-// import NewWindowContent from '../NewWindowContent/NewWindowContent';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Select from 'react-select';
@@ -17,7 +15,8 @@ const AddSongPage = () => {
         name:'',
         releaseDate:'',
         coverImage:File,
-        artistNames:selectedArtists
+        artistNames:selectedArtists,
+        artistIds:selectedArtists._id
     });
     console.log("formData",formData)
     const HandleFormData=(e)=>{
@@ -105,7 +104,7 @@ const AddSongPage = () => {
                 <th></th>
                 <th>
                     <div className='buttondiv'>
-                         <button onClick={navigate('/')}>Cancel</button>
+                         <button onClick={()=>navigate('/')}>Cancel</button>
                          <button onClick={CreateSong}>Save</button>
                     </div>
                 </th>

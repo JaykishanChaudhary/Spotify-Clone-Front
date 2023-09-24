@@ -1,10 +1,13 @@
 .star-rating {
-    display: inline-block;
+    display: flex;
+    gap: 2rem;
   }
   
   .star {
     font-size: 24px;
     color: #ddd;
+    width: 2rem;
+    height: 2rem;
   }
   
   .filled {

@@ -45,7 +45,7 @@ function ArtistTable(){
                    return (<tr key={index}>
                         <th>{Data.name}</th>
                         <th>{Data.DOB}</th>
-                        <th>{Data.Songs.join("  ,  ")}</th>
+                        <th>{Data.Songs}</th>
                         {/* <th>{Data.rating}</th> */}
                     </tr>)
                    

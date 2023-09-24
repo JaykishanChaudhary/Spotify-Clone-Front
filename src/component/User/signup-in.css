@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+body{
+    /* background-color: #E1F9F4; */
+}
+
+.form-container-main{
+    width: 30%;
+    height: 25rem;
+    border-radius: 0.625rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin: 8% auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;    
+}
+
+.logo-m-b{
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.para-m-b{
+    margin-bottom: 40px;
+}
+.font-opct{
+    opacity: 0.6;
+}
+.font-s-l{
+    font-size: 2.5rem;
+}
+.font-s-sm{
+    font-size: 0.938rem;
+}
+.font-c-l{
+    color: #4C57B6;
+}
+.m-top{
+    margin-top: 50px;
+}
+.font-s-n{
+    text-decoration: none;
+}
+.link-font-w{
+    font-weight: 600;
+    color: #352D66;
+}
+
+.b-m-signin{
+    margin-bottom: 22px;
+}
+.para-m-b-sign{
+    margin-bottom: 48px;
+}
+
+.showMessage{
+    padding-bottom: 10px;
+    color: red;
+    font-family: 'Open Sans', sans-serif;
+    font-size: smaller;
+}
+
+.input-filed{
+    margin-bottom: 14px;
+    width: 100%;
+}
+.input-filed > input{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 80%;
+    border: 1px solid #E2E2E2;
+    border-radius: 5px;
+    outline-style: none;
+    border-radius: 5px;
+}
+.input-filed > input:hover{
+    border-color: #9e9999;
+    
+}
+
+.signUp-btn > button{
+    width: 80%;
+    margin-bottom: 30px;
+    background-color: #4C57B6;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+}
+.signUp-btn > button:hover{
+    color: black;
+}
+
+#toast-container{
+    width: 10%;
+    height: auto;
+    text-align: center;
+    padding: 14px;
+    border-radius: 5px;
+    background-color: #ff3d00;
+    border: 1px solid rgb(168, 20, 20);
+    margin-top: -550px !important;
+    margin-right: 500px !important;
+    margin-left: auto !important;
+}
