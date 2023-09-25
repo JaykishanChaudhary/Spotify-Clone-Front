@@ -3,6 +3,7 @@ import './AddSongPage.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Select from 'react-select';
+import NewWindowContent from '../NewWindowContent/NewWindowContent';
 
 
 
@@ -11,6 +12,7 @@ const AddSongPage = () => {
     const navigate=useNavigate();
     const [selectedArtists, setSelectedArtists] = useState([]);
     const [File,setFile]=useState(null);
+    const [showModel,setshowModel]=useState(false)
     const [formData,setformData]=useState({
         name:'',
         releaseDate:'',
@@ -26,6 +28,8 @@ const AddSongPage = () => {
             [name]:value
         })
     }
+
+    function closeModel(){ setshowModel(false)}
 
     const HandleSelectedArtists = (selectedOptions) => {
         setSelectedArtists(selectedOptions);
@@ -55,7 +59,7 @@ const AddSongPage = () => {
         });
       }
     const openCustomWindow = () => {
-        navigate('/addartist')
+        setshowModel(true)
       };
 
       function CreateSong(){
@@ -104,6 +108,7 @@ const AddSongPage = () => {
 
 
   return (
+        <>
     <div className='addsongdiv'>
         <h1>Adding a new Song</h1>
         <table>
@@ -141,8 +146,9 @@ const AddSongPage = () => {
             </tr>
             </tbody>
         </table>
-        
+        {showModel && <NewWindowContent closeModel={closeModel}/>}
     </div>
+    </>
   )
 }
 

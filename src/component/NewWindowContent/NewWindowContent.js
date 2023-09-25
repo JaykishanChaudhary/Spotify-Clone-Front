@@ -4,7 +4,7 @@ import Cancel from '../../assets/cancel.png'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const NewWindowContent = () => {
+const NewWindowContent = ({closeModel}) => {
     const navigate=useNavigate()
     const [selectedItem,setselectedItem]=useState(null);
 
@@ -48,18 +48,20 @@ const NewWindowContent = () => {
         }else{
             console.error('No token available: Redirect to login or show error message');
         }
-       
+       closeModel()
 
     }
 
     function NaviPage(){
-        navigate('/addsong')
+        // navigate('/addsong')
+        // closeModel()
     }
-  return (
+  return (<>
+  <div className='blurr-container'></div>
     <div className='headdiv'>
         <div id='headerdiv'>
              <h2>Add Artist</h2>
-            <img src={Cancel} height='40' width='40' id='cancelimg' onClick={NaviPage} alt='cancel'/>
+            <img src={Cancel} height='40' width='40' id='cancelimg' onClick={()=>closeModel()} alt='cancel'/>
         </div>
      <hr className='horizontal'/>
      <table>
@@ -82,8 +84,8 @@ const NewWindowContent = () => {
                 <th></th>
                 <th>
                     <div className='buttondiv'>
-                        <button onClick={ArtistCreate}>Save</button>
-                        <button onClick={NaviPage}>Cancel</button>
+                        <button  onClick={ArtistCreate}>Save</button>
+                        <button onClick={()=>closeModel()}>Cancel</button>
                     </div>
                 </th>
             </tr>
@@ -92,6 +94,7 @@ const NewWindowContent = () => {
      </table>
     
     </div>
+    </>
   )
 }
 
